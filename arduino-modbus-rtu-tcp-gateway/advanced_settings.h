@@ -6,7 +6,7 @@
 #define mySerial Serial  // define serial port for RS485 interface, for Arduino Mega choose from Serial1, Serial2 or Serial3
 // List of baud rates (divided by 100) available in WebUI. Feel free to add your custom baud rate (anything between 3 and 2500)
 const uint16_t BAUD_RATES[] = { 3, 6, 9, 12, 24, 48, 96, 192, 384, 576, 1152 };
-#define RS485_CONTROL_PIN 6              // Arduino Pin for RS485 Direction control, disable if you have module with hardware flow control
+#define RS485_CONTROL_PIN 7              // Arduino Pin for RS485 Direction control, disable if you have module with hardware flow control
 const byte MAX_QUEUE_REQUESTS = 10;      // max number of TCP or UDP requests stored in a queue
 const uint16_t MAX_QUEUE_DATA = 256;     // total length of TCP or UDP requests stored in a queue (in bytes)
 const uint16_t MAX_SLAVES = 247;         // max number of Modbus slaves (Modbus supports up to 247 slaves, the rest is for reserved addresses)
@@ -18,7 +18,7 @@ const byte SCAN_DATA_ADDRESS = 0x01;     // Data address sent during Modbus RTU 
 const uint16_t SCAN_TIMEOUT = 200;       // Timeout (ms) for Modbus scan requests
 
 const byte MAC_START[3] = { 0x90, 0xA2, 0xDA };  // MAC range for Gheo SA
-const byte ETH_RESET_PIN = 7;                    // Ethernet shield reset pin (deals with power on reset issue on low quality ethernet shields)
+const byte ETH_RESET_PIN = A1;                    // Ethernet shield reset pin (deals with power on reset issue on low quality ethernet shields)
 const uint16_t ETH_RESET_DELAY = 500;            // Delay (ms) during Ethernet start, wait for Ethernet shield to start (reset issue on low quality ethernet shields)
 const uint16_t WEB_IDLE_TIMEOUT = 400;           // Time (ms) from last client data after which webserver TCP socket could be disconnected, non-blocking.
 const uint16_t TCP_DISCON_TIMEOUT = 500;         // Timeout (ms) for client DISCON socket command, non-blocking alternative to https://www.arduino.cc/reference/en/libraries/ethernet/client.setconnectiontimeout/
